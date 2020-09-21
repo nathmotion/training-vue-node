@@ -1,0 +1,36 @@
+<template>
+  <div id="task-form">
+    <form @submit.prevent="handleSubmit">
+      <input v-model="task.label" type="text"/>
+      <button>Add</button>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "task-form",
+  data() {
+    return {
+      task: {
+        label: ''
+      }
+    }
+  },
+  methods: {
+    handleSubmit() {
+      this.$emit('add-task', this.task)
+    }
+  }
+}
+</script>
+
+<style scoped>
+form {
+  margin-bottom: 2rem;
+}
+
+input {
+  margin-right: 2rem;
+}
+</style>

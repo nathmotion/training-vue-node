@@ -1,15 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <id id="app" class="small-container">
+    <h1> TODO LIST </h1>
+    <TaskForm @add-task="addTask"/>
+    <TodoList :todo="todo"/>
+  </id>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import TodoList from "@/components/TodoList";
+import TaskForm from "@/components/TaskForm";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TodoList,
+    TaskForm,
+  },
+  data() {
+    return {
+      todo: []
+    }
+  },
+
+  methods: {
+    addTask(task) {
+      const lastId = this.todo.length > 0 ? this.todo[this.todo.length - 1].id : 0
+      const id = lastId + 1;
+      const newTask = {...task, id}
+      this.todo = [...this.todo, newTask]
+    }
   }
 }
 </script>
@@ -22,5 +42,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.small-container {
+  max-width: 680px;
 }
 </style>
