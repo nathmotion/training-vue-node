@@ -1,12 +1,9 @@
 <template>
-  <id id="app" class="small-container">
-    <h1> TODO LIST </h1>
-
-    <div class="content">
-      <task-form @add-task="addTask"/>
-      <task-list :tasks="tasks" @delete-task="deleteTask" @complete-task="completeTask"/>
-    </div>
-  </id>
+  <h1> TODO LIST </h1>
+  <div class="content">
+    <task-form @add-task="addTask"/>
+    <task-list :tasks="tasks" @delete-task="deleteTask" @complete-task="completeTask"/>
+  </div>
 </template>
 
 <script>
@@ -53,11 +50,18 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
 }
 
-.small-container {
-  max-width: 680px;
-  display: inline-flex;
+body {
+  background-color: #f2f5f7;
+}
+
+.content {
+  width: 100%;
+  display: flex;
   flex-direction: column;
+  align-items: center;
 }
 </style>

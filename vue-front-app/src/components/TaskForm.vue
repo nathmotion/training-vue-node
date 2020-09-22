@@ -27,11 +27,19 @@ export default {
 </script>
 
 <style scoped>
-form {
+/*form {
   margin-bottom: 2rem;
 }
 
 input {
   margin-right: 2rem;
+}*/
+#task-form {
+  width: 50%;
+  background-color: #FFFFFF;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+
 }
 </style>
