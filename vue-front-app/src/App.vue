@@ -1,34 +1,39 @@
 <template>
   <id id="app" class="small-container">
     <h1> TODO LIST </h1>
-    <TaskForm @add-task="addTask"/>
-    <TodoList :todo="todo"/>
+    <task-form @add-task="addTask"/>
+    <task-list :tasks="tasks" @delete-task="deleteTask"/>
   </id>
 </template>
 
 <script>
 
-import TodoList from "@/components/TodoList";
 import TaskForm from "@/components/TaskForm";
+import TaskList from "@/components/TaskList";
 
 export default {
   name: 'App',
   components: {
-    TodoList,
+    TaskList,
     TaskForm,
   },
   data() {
     return {
-      todo: []
+      tasks: []
     }
   },
 
   methods: {
     addTask(task) {
-      const lastId = this.todo.length > 0 ? this.todo[this.todo.length - 1].id : 0
+      const lastId = this.tasks.length > 0 ? this.tasks[this.tasks.length - 1].id : 0
       const id = lastId + 1;
       const newTask = {...task, id}
-      this.todo = [...this.todo, newTask]
+      this.tasks = [...this.tasks, newTask]
+    },
+    deleteTask(id) {
+      this.tasks = this.tasks.filter(
+        task => task.id !== id
+      )
     }
   }
 }
