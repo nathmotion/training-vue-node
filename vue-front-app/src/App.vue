@@ -1,8 +1,11 @@
 <template>
   <id id="app" class="small-container">
     <h1> TODO LIST </h1>
-    <task-form @add-task="addTask"/>
-    <task-list :tasks="tasks" @delete-task="deleteTask"/>
+
+    <div class="content">
+      <task-form @add-task="addTask"/>
+      <task-list :tasks="tasks" @delete-task="deleteTask" @complete-task="completeTask"/>
+    </div>
   </id>
 </template>
 
@@ -32,8 +35,11 @@ export default {
     },
     deleteTask(id) {
       this.tasks = this.tasks.filter(
-        task => task.id !== id
+          task => task.id !== id
       )
+    },
+    completeTask(task) {
+      task.completed = !task.completed
     }
   }
 }
@@ -51,5 +57,7 @@ export default {
 
 .small-container {
   max-width: 680px;
+  display: inline-flex;
+  flex-direction: column;
 }
 </style>

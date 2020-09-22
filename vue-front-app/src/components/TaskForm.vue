@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       task: {
+        completed: false,
         label: ''
       }
     }
