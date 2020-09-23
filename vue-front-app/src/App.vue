@@ -2,7 +2,7 @@
   <h1> TODO LIST </h1>
   <div class="content">
     <task-form @add-task="addTask"/>
-    <task-list :tasks="tasks" @delete-task="deleteTask" @complete-task="completeTask"/>
+    <task-list :tasks="tasks" @delete-task="deleteTask"/>
   </div>
 </template>
 
@@ -35,9 +35,6 @@ export default {
           task => task.id !== id
       )
     },
-    completeTask(task) {
-      task.completed = !task.completed
-    }
   }
 }
 </script>

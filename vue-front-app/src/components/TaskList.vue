@@ -3,9 +3,8 @@
     <p v-if="tasks.length < 1" class="empty-table task-item"> No task found!</p>
     <ul v-else class="list-task">
       <li v-for="task in tasks" :key="task.id" class="task-item">
-        <div class="task-part-left"><input type="checkbox" id="{{task.id}}" class="radio-item"
-                                           @change="$emit('complete-task',task)"/>
-          <label for="{{task.id}}">{{ task.label }}</label>
+        <div class="task-part-left">
+          <label>{{ task.label }}</label>
         </div>
         <div class=" task-part-right">
           <i class="material-icons button-delete" @click="$emit('delete-task', task.id)">close</i>
@@ -52,7 +51,7 @@ ul.list-task {
 }
 
 li.task-item {
-  padding: 25px;
+  padding: 25px 25px 18px 25px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
@@ -69,12 +68,8 @@ li.task-item {
 
 .task-part-left label {
   cursor: pointer;
+  margin-left: 8px;
 }
-
-.radio-item {
-  cursor: pointer;
-}
-
 
 .task-item {
   background-color: #FFFFFF;
