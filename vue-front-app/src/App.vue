@@ -1,5 +1,5 @@
 <template>
-  <h1> TODO LIST </h1>
+  <h1> ToDo List </h1>
   <div class="content">
     <task-form @add-task="addTask"/>
     <task-list :tasks="tasks" @delete-task="deleteTask"/>
@@ -41,7 +41,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -52,7 +52,7 @@ export default {
 }
 
 body {
-  background-color: #f2f5f7;
+  background-color: bisque;
 }
 
 .content {

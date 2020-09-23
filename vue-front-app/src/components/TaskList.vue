@@ -1,6 +1,6 @@
 <template>
   <div id="task-list">
-    <p v-if="tasks.length < 1" class="empty-table task-item"> No task found!</p>
+    <p v-if="tasks.length < 1" class="empty-table task-item">No task found!</p>
     <ul v-else class="list-task">
       <li v-for="task in tasks" :key="task.id" class="task-item">
         <div class="task-part-left">
@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 #task-list {
-  width: 50%;
+  width: 33%;
 }
 
 .list-task {
@@ -42,6 +42,8 @@ export default {
 }
 
 .button-delete {
+  background-color: red;
+  color: #FFFFFF;
   cursor: pointer;
 }
 
@@ -51,11 +53,11 @@ ul.list-task {
 }
 
 li.task-item {
-  padding: 25px 25px 18px 25px;
+  padding: 10px 20px 12px 15px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .task-part-left {
