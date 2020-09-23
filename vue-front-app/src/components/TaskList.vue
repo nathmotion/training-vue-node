@@ -8,7 +8,6 @@
           <label for="{{task.id}}">{{ task.label }}</label>
         </div>
         <div class=" task-part-right">
-          <!--<button >X</button>-->
           <i class="material-icons button-delete" @click="$emit('delete-task', task.id)">close</i>
         </div>
       </li>
