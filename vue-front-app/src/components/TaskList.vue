@@ -3,11 +3,12 @@
     <p v-if="tasks.length < 1" class="empty-table task-item"> No task found!</p>
     <ul v-else class="list-task">
       <li v-for="task in tasks" :key="task.id" class="task-item">
-        <div class="task-part-left"><input type="checkbox" @change="$emit('complete-task',task)"/>
-          {{ task.label }}
+        <div class="task-part-left"><input type="checkbox" id="{{task.id}}" class="radio-item"
+                                           @change="$emit('complete-task',task)"/>
+          <label for="{{task.id}}">{{ task.label }}</label>
         </div>
         <div class=" task-part-right">
-          <button @click="$emit('delete-task', task.id)">X</button>
+          <button class="button-delete" @click="$emit('delete-task', task.id)">X</button>
         </div>
       </li>
     </ul>
@@ -34,13 +35,15 @@ export default {
 .list-task {
   width: 100%;
   margin-top: 21px;
-
 }
 
 .empty-table {
   padding: 25px;
   margin-top: 21px;
+}
 
+.button-delete {
+  cursor: pointer;
 }
 
 ul.list-task {
@@ -49,7 +52,7 @@ ul.list-task {
 }
 
 li.task-item {
-  padding: 15px;
+  padding: 25px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
@@ -59,11 +62,21 @@ li.task-item {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100%;
+  text-align: left;
 }
+
+.task-part-left label {
+  cursor: pointer;
+}
+
+.radio-item {
+  cursor: pointer;
+}
+
 
 .task-item {
   background-color: #FFFFFF;
   border-radius: 10px;
-
 }
 </style>
