@@ -3,7 +3,7 @@
     <form @submit.prevent="handleSubmit">
       <div class="form-input-button">
         <input class="input-task" type="text" v-model="task.label" placeholder="New task">
-        <span class="material-icons button-add" @click="handleSubmit">add_circle_outline</span>
+        <span class="material-icons button-add" @click="handleSubmit">post_addgi</span>
       </div>
       <p class="error-message" v-if="error">❗Please fill out all required fields</p>
     </form>

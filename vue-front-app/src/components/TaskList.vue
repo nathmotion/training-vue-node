@@ -7,7 +7,7 @@
           <label>{{ task.label }}</label>
         </div>
         <div class=" task-part-right">
-          <i class="material-icons button-delete" @click="$emit('delete-task', task.id)">close</i>
+          <i class="material-icons button-delete" @click="$emit('delete-task', task.id)">delete</i>
         </div>
       </li>
     </ul>
@@ -42,8 +42,7 @@ export default {
 }
 
 .button-delete {
-  background-color: red;
-  color: #FFFFFF;
+  color: #ff2929;
   cursor: pointer;
   margin-top: 2px;
   border-radius: 4px;
