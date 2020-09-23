@@ -1,8 +1,10 @@
 <template>
   <div id="task-form">
     <form @submit.prevent="handleSubmit">
-      <input class="input-task" type="text" v-model="task.label" placeholder="New task">
-      <button class="button-add"><span class="material-icons">add_circle_outline</span></button>
+      <div class="form-input-button">
+        <input class="input-task" type="text" v-model="task.label" placeholder="New task">
+        <span class="material-icons button-add" @click="handleSubmit">add_circle_outline</span>
+      </div>
       <p class="error-message" v-if="error">❗Please fill out all required fields</p>
     </form>
   </div>
@@ -20,8 +22,8 @@ export default {
     }
   },
   computed: {
-  invalidLabel() {
-    return this.task.label === ''
+    invalidLabel() {
+      return this.task.label === ''
     },
   },
   methods: {
@@ -42,15 +44,34 @@ export default {
 .button-add {
   align-content: center;
   cursor: pointer;
+  margin-left: 10px;
+  font-size: 30px;
 }
 
 .input-task {
   font-family: 'Montserrat', sans-serif;
+  display: block;
+  margin: 0;
+  width: 35%;
+  padding: 0.8rem 1.6rem;
+  color: inherit;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.input-task:focus {
+  outline: none;
+}
+
+.form-input-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .error-message {
-    color: #d33c40;
-    font-size: 70%;
+  color: #d33c40;
+  font-size: 70%;
 }
 
 #task-form {

@@ -45,6 +45,8 @@ export default {
   background-color: red;
   color: #FFFFFF;
   cursor: pointer;
+  margin-top: 2px;
+  border-radius: 4px;
 }
 
 ul.list-task {
@@ -53,9 +55,10 @@ ul.list-task {
 }
 
 li.task-item {
-  padding: 10px 20px 12px 15px;
+  padding: 10px 20px 10px 15px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 8px;
   font-family: 'Montserrat', sans-serif;
 }

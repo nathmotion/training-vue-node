@@ -52,7 +52,7 @@ export default {
 }
 
 body {
-  background-color: bisque;
+  background-color: #ffe4c4;
 }
 
 .content {
