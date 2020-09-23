@@ -52,7 +52,6 @@ export default {
   font-family: 'Montserrat', sans-serif;
   display: block;
   margin: 0;
-  width: 35%;
   padding: 0.8rem 1.6rem;
   color: inherit;
   border: none;
