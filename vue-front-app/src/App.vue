@@ -45,7 +45,7 @@ export default {
 }
 
 #app {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Roboto', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

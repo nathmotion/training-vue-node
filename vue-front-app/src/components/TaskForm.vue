@@ -54,7 +54,6 @@ export default {
 }
 
 .input-task {
-  font-family: inherit;
   display: block;
   margin: 0;
   padding: 0.8em 1.6em;

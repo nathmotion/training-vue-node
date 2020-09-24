@@ -56,7 +56,6 @@ li.task-item {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .task-part-left {
