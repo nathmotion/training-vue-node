@@ -2,10 +2,19 @@
   <div id="task-form">
     <form @submit.prevent="handleSubmit">
       <div class="form-input-button">
-        <input class="input-task" type="text" v-model="task.label" placeholder="New task">
-        <span class="material-icons button-add" @click="handleSubmit">post_addgi</span>
+        <input
+          class="input-task"
+          type="text"
+          v-model="task.label"
+          placeholder="New task"
+        />
+        <span class="material-icons button-add" @click="handleSubmit"
+          >post_addgi</span
+        >
       </div>
-      <p class="error-message" v-if="error">❗ Veuillez renseigner tous les champs ❗</p>
+      <p class="error-message" v-if="error">
+        ❗ Veuillez renseigner tous les champs ❗
+      </p>
     </form>
   </div>
 </template>
@@ -17,31 +26,30 @@ export default {
     return {
       error: false,
       task: {
-        label: ''
-      }
-    }
+        label: "",
+      },
+    };
   },
   computed: {
     invalidLabel() {
-      return this.task.label === ''
+      return this.task.label === "";
     },
   },
   methods: {
     handleSubmit() {
       if (this.invalidLabel) {
-        this.error = true
-        return
+        this.error = true;
+        return;
       }
-      this.$emit('add-task', this.task)
-      this.task.label = ''
-      this.error = false
-    }
-  }
-}
+      this.$emit("add-task", this.task);
+      this.task.label = "";
+      this.error = false;
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 :root {
   --error-color-message: #d33c40;
 }

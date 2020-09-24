@@ -21,10 +21,12 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
+
+    "husky": {
+      "hooks": {
+        "pre-commit": "yarn lint",
+        "pre-push": "yarn test"
+      }
     },
     "extends": [
       "plugin:vue/vue3-essential",
