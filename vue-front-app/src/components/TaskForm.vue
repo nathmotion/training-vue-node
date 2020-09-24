@@ -41,6 +41,11 @@ export default {
 </script>
 
 <style scoped>
+
+:root {
+  --error-color-message: #d33c40;
+}
+
 .button-add {
   align-content: center;
   cursor: pointer;
@@ -49,13 +54,13 @@ export default {
 }
 
 .input-task {
-  font-family: 'Montserrat', sans-serif;
+  font-family: inherit;
   display: block;
   margin: 0;
-  padding: 0.8rem 1.6rem;
+  padding: 0.8em 1.6em;
   color: inherit;
   border: none;
-  border-radius: 0.4rem;
+  border-radius: 0.4em;
 }
 
 .input-task:focus {
@@ -69,7 +74,7 @@ export default {
 }
 
 .error-message {
-  color: #d33c40;
+  color: var(--error-color-message);
   font-size: 70%;
 }
 
@@ -77,8 +82,6 @@ export default {
   width: 50%;
   padding-top: 20px;
   padding-bottom: 20px;
-  border-radius: 10px;
-  font-family: 'Montserrat', sans-serif;
-
+  border-radius: 0.4em;
 }
 </style>

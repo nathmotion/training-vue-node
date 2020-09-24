@@ -17,9 +17,6 @@
 <script>
 export default {
   name: "task-list",
-  data() {
-    return {}
-  },
   props: {
     tasks: Array,
   }

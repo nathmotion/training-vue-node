@@ -32,7 +32,7 @@ export default {
     },
     deleteTask(idToDelete) {
       this.tasks = this.tasks.filter(
-          ({ id }) => id !== idToDelete
+          ({id}) => id !== idToDelete
       )
     },
   }
@@ -40,19 +40,22 @@ export default {
 </script>
 
 <style>
+:root {
+  --main-bg-color: #ffe4c4;
+}
+
 #app {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 4em;
   display: flex;
   flex-direction: column;
 }
 
 body {
-  background-color: #ffe4c4;
+  background-color: var(--main-bg-color);
 }
 
 .content {
