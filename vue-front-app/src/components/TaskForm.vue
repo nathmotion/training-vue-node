@@ -5,7 +5,7 @@
         <input class="input-task" type="text" v-model="task.label" placeholder="New task">
         <span class="material-icons button-add" @click="handleSubmit">post_addgi</span>
       </div>
-      <p class="error-message" v-if="error">❗Please fill out all required fields</p>
+      <p class="error-message" v-if="error">❗ Veuillez renseigner tous les champs ❗</p>
     </form>
   </div>
 </template>

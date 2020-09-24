@@ -30,9 +30,9 @@ export default {
       const newTask = {...task, id}
       this.tasks = [...this.tasks, newTask]
     },
-    deleteTask(id) {
+    deleteTask(idToDelete) {
       this.tasks = this.tasks.filter(
-          task => task.id !== id
+          ({ id }) => id !== idToDelete
       )
     },
   }
