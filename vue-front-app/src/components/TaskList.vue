@@ -6,12 +6,8 @@
         <div class="task-part-left">
           <label>{{ task.label }}</label>
         </div>
-        <div class="task-part-right">
-          <i
-            class="material-icons button-delete"
-            @click="$emit('delete-task', task.id)"
-            >delete</i
-          >
+        <div class=" task-part-right">
+          <i class="material-icons button-delete" @click="$emit('delete-task', task.id)">delete</i>
         </div>
       </li>
     </ul>
@@ -23,8 +19,8 @@ export default {
   name: "task-list",
   props: {
     tasks: Array,
-  },
-};
+  }
+}
 </script>
 
 <style scoped>
@@ -76,7 +72,7 @@ li.task-item {
 }
 
 .task-item {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border-radius: 10px;
 }
 </style>
