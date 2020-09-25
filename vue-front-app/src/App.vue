@@ -1,21 +1,20 @@
 <template>
-  <h1> ToDo List </h1>
   <div class="content">
-    <task-form @add-task="addTask"/>
-    <task-list :tasks="tasks" @delete-task="deleteTask"/>
+    <h1>ToDo List</h1>
+    <task-form @add-task="addTask" />
+    <task-list :tasks="tasks" @delete-task="deleteTask" />
   </div>
 </template>
 
 <script>
-
-import TaskForm from "@/components/TaskForm";
-import TaskList from "@/components/TaskList";
+import TaskForm from '../.../components/TaskForm.vue'
+import TaskList from '../.../components/TaskList.vue'
 
 export default {
   name: 'App',
   components: {
     TaskList,
-    TaskForm,
+    TaskForm
   },
   data() {
     return {
@@ -26,15 +25,13 @@ export default {
   methods: {
     addTask(task) {
       const lastId = this.tasks.length > 0 ? this.tasks[this.tasks.length - 1].id : 0
-      const id = lastId + 1;
-      const newTask = {...task, id}
+      const id = lastId + 1
+      const newTask = { ...task, id }
       this.tasks = [...this.tasks, newTask]
     },
     deleteTask(idToDelete) {
-      this.tasks = this.tasks.filter(
-          ({id}) => id !== idToDelete
-      )
-    },
+      this.tasks = this.tasks.filter(({ id }) => id !== idToDelete)
+    }
   }
 }
 </script>
