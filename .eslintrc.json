@@ -7,9 +7,9 @@
     "node": true
   },
   "extends": [
-    "plugin:prettier/recommended",
     "plugin:vue/essential",
-    "@vue/airbnb"
+    "@vue/airbnb",
+    "plugin:prettier/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -24,5 +24,8 @@
     "import",
     "prettier",
     "vue"
-  ]
+  ],
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }
