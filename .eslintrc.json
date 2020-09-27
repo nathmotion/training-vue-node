@@ -6,11 +6,7 @@
     "es6": true,
     "node": true
   },
-  "extends": [
-    "plugin:vue/essential",
-    "@vue/airbnb",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["plugin:vue/essential", "@vue/airbnb", "plugin:prettier/recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -20,11 +16,7 @@
     "ecmaVersion": 2020,
     "parser": "babel-eslint"
   },
-  "plugins": [
-    "import",
-    "prettier",
-    "vue"
-  ],
+  "plugins": ["import", "prettier", "vue"],
   "rules": {
     "prettier/prettier": "error"
   }
