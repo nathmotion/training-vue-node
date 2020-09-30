@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["plugin:vue/essential", "@vue/airbnb", "plugin:prettier/recommended"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "parser": "babel-eslint"
+  },
+  "plugins": ["import", "prettier", "vue"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}
