@@ -35,8 +35,8 @@ export default {
     }
   },
   async mounted() {
-    this.tasks = await axios.get('http://localhost:3001/tasks')
-    console.info('tasks:', this.tasks)
+    this.tasks = (await axios.get('http://localhost:3001/tasks')).data
+    console.info(this.tasks.length)
   }
 }
 </script>
