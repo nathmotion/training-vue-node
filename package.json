@@ -31,7 +31,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint --no-fix && prettier --check '**/*.{js,jsx,vue,json,yaml,yml}'"
+      "pre-commit": "yarn lint --no-fix && prettier --write '**/*.{js,jsx,vue,json,yaml,yml}'"
     }
   },
   "browserslist": [

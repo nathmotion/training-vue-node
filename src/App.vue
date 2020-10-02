@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import TaskForm from './components/TaskForm.vue'
 import TaskList from './components/TaskList.vue'
 
@@ -32,6 +33,10 @@ export default {
     deleteTask(idToDelete) {
       this.tasks = this.tasks.filter(({ id }) => id !== idToDelete)
     }
+  },
+  async mounted() {
+    this.tasks = await axios.get('http://localhost:3001/tasks')
+    console.info('tasks:', this.tasks)
   }
 }
 </script>
