@@ -11,6 +11,7 @@ import axios from 'axios'
 import TaskForm from './components/TaskForm.vue'
 import TaskList from './components/TaskList.vue'
 
+const $BASE_URL = 'http://localhost:3001/tasks'
 export default {
   name: 'App',
   components: {
@@ -24,19 +25,18 @@ export default {
   },
 
   methods: {
-    addTask(task) {
+    async addTask(label) {
       const lastId = this.tasks.length > 0 ? this.tasks[this.tasks.length - 1].id : 0
       const id = lastId + 1
-      const newTask = { ...task, id }
-      this.tasks = [...this.tasks, newTask]
+      const newTask = { ...label, id }
+      this.tasks = (await axios.post($BASE_URL, newTask)).data
     },
-    deleteTask(idToDelete) {
-      this.tasks = this.tasks.filter(({ id }) => id !== idToDelete)
+    async deleteTask(idToDelete) {
+      this.tasks = (await axios.delete(`${$BASE_URL}/${idToDelete}`)).data
     }
   },
   async mounted() {
-    this.tasks = (await axios.get('http://localhost:3001/tasks')).data
-    console.info(this.tasks.length)
+    this.tasks = (await axios.get($BASE_URL)).data
   }
 }
 </script>
