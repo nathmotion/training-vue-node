@@ -7,11 +7,10 @@
 </template>
 
 <script>
-import axios from 'axios'
 import TaskForm from './components/TaskForm.vue'
 import TaskList from './components/TaskList.vue'
+import { taskService } from './services'
 
-const $BASE_URL = 'http://localhost:3001/tasks'
 export default {
   name: 'App',
   components: {
@@ -29,14 +28,14 @@ export default {
       const lastId = this.tasks.length > 0 ? this.tasks[this.tasks.length - 1].id : 0
       const id = lastId + 1
       const newTask = { ...label, id }
-      this.tasks = (await axios.post($BASE_URL, newTask)).data
+      this.tasks = await taskService.add(newTask)
     },
-    async deleteTask(idToDelete) {
-      this.tasks = (await axios.delete(`${$BASE_URL}/${idToDelete}`)).data
+    async deleteTask(id) {
+      this.tasks = await taskService.delete(id)
     }
   },
   async mounted() {
-    this.tasks = (await axios.get($BASE_URL)).data
+    this.tasks = await taskService.getAll()
   }
 }
 </script>
