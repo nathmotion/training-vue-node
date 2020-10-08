@@ -10,32 +10,28 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'TaskForm',
-  data() {
-    return {
-      error: false,
-      task: {
-        label: ''
-      }
+<script lang="ts">
+import { Vue } from 'vue-class-component'
+
+export default class TaskForm extends Vue {
+  error: false
+
+  task: {
+    label: ''
+  }
+
+  invalidLabel(): string {
+    return this.task.label === ''
+  }
+
+  handleSubmit() {
+    if (this.invalidLabel) {
+      this.error = true
+      return
     }
-  },
-  computed: {
-    invalidLabel() {
-      return this.task.label === ''
-    }
-  },
-  methods: {
-    handleSubmit() {
-      if (this.invalidLabel) {
-        this.error = true
-        return
-      }
-      this.$emit('add-task', this.task)
-      this.task.label = ''
-      this.error = false
-    }
+    this.$emit('add-task', this.task)
+    this.task.label = ''
+    this.error = false
   }
 }
 </script>

@@ -9,7 +9,8 @@
   "extends": [
     "plugin:vue/essential",
     "@vue/airbnb",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "@vue/typescript"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -18,7 +19,7 @@
   "parser": "vue-eslint-parser",
   "parserOptions": {
     "ecmaVersion": 2020,
-    "parser": "babel-eslint"
+    "parser": "@typescript-eslint/parser"
   },
   "plugins": [
     "import",

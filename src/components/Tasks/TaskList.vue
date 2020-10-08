@@ -14,12 +14,14 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'TaskList',
-  props: {
-    tasks: Array
-  }
+<script lang="ts">
+import { Vue } from 'vue-class-component'
+
+export default class TaskList extends Vue {
+  name: string = 'TaskList'
+
+  // eslint-disable-next-line no-undef
+  @Prop() tasks?: Array
 }
 </script>
 

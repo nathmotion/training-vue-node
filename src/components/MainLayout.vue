@@ -2,15 +2,16 @@
   <tasks-layout />
 </template>
 
-<script>
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component'
 import TasksLayout from './Tasks/TasksLayout.vue'
 
-export default {
-  name: 'MainLayout',
+@Options({
   components: {
     TasksLayout
   }
-}
+})
+export default class MainLayout extends Vue {}
 </script>
 
 <style scoped></style>
