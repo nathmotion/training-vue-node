@@ -5,33 +5,38 @@
         <input class="input-task" type="text" v-model="task.label" placeholder="New task" />
         <span class="material-icons button-add" @click="handleSubmit">post_addgi</span>
       </div>
-      <p v-if="error" class="error-message">❗ Veuillez renseigner tous les champs ❗</p>
+      <p v-if="errorEmptyLabel" class="error-message">❗ Veuillez renseigner tous les champs ❗</p>
     </form>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-class-component'
-
-export default class TaskForm extends Vue {
-  error: false
-
-  task: {
-    label: ''
-  }
-
-  invalidLabel(): string {
-    return this.task.label === ''
-  }
-
-  handleSubmit() {
-    if (this.invalidLabel) {
-      this.error = true
-      return
+export default {
+  setup({ emit }) {
+    let errorEmptyLabel = false
+    const task = {
+      label: ''
     }
-    this.$emit('add-task', this.task)
-    this.task.label = ''
-    this.error = false
+    const invalidLabel = (): boolean => {
+      return task.label === ''
+    }
+
+    const handleSubmit = () => {
+      if (invalidLabel()) {
+        errorEmptyLabel = true
+        return
+      }
+      emit('add-task', task)
+      task.label = ''
+      errorEmptyLabel = false
+    }
+
+    return {
+      errorEmptyLabel,
+      task,
+      invalidLabel,
+      handleSubmit
+    }
   }
 }
 </script>

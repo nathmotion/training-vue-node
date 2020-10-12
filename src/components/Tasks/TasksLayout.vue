@@ -7,36 +7,42 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
+import { onMounted } from '@vue/composition-api'
 import TaskList from './TaskList.vue'
 import TaskForm from './TaskForm.vue'
 import { taskService } from '../../services'
 
-@Options({
+export default {
   components: {
     TaskList,
     TaskForm
-  }
-})
-export default class TasksLayout extends Vue {
-  tasks: Array = []
-
-  async addTask(label: string) {
-    const lastId = this.tasks.length > 0 ? this.tasks[this.tasks.length - 1].id : 0
-    const id = lastId + 1
-    const newTask = {
-      ...label,
-      id
+  },
+  setup() {
+    let tasks = Array
+    const addTask = async (label: any) => {
+      const lastId = tasks.length > 0 ? tasks[tasks.length - 1].id : 0
+      const id = lastId + 1
+      const newTask = {
+        ...label,
+        id
+      }
+      tasks = await taskService.add(newTask)
     }
-    this.tasks = await taskService.add(newTask)
-  }
 
-  async deleteTask(id: number) {
-    this.tasks = await taskService.delete(id)
-  }
+    const deleteTask = async (id: number) => {
+      tasks = await taskService.delete(id)
+    }
+    const getTaskList = async () => {
+      tasks = await taskService.getAll()
+    }
+    onMounted(getTaskList)
 
-  async mounted() {
-    this.tasks = await taskService.getAll()
+    return {
+      tasks,
+      getTaskList,
+      addTask,
+      deleteTask
+    }
   }
 }
 </script>

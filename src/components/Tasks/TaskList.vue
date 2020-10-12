@@ -21,7 +21,7 @@ export default class TaskList extends Vue {
   name: string = 'TaskList'
 
   // eslint-disable-next-line no-undef
-  @Prop() tasks?: Array
+  // @Prop() tasks?: Array
 }
 </script>
 

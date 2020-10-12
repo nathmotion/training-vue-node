@@ -1,17 +1,15 @@
 <template>
-  <MainLayout />
+  <main-layout />
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
 import MainLayout from './components/MainLayout.vue'
 
-@Options({
+export default {
   components: {
     MainLayout
   }
-})
-export default class App extends Vue {}
+}
 </script>
 
 <style>
