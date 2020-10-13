@@ -15,10 +15,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 
 const TaskList = defineComponent({
-  name: 'TaskList'
+  name: 'TaskList',
+  props: {
+    tasks: Array
+  }
 })
 
 export default TaskList

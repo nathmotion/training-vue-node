@@ -11,10 +11,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 
 const TaskForm = defineComponent({
-  setup({ emit }) {
+  setup(props, context) {
     let errorEmptyLabel = false
     const task = {
       label: ''
@@ -23,14 +23,13 @@ const TaskForm = defineComponent({
       return task.label === ''
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (): void => {
       if (invalidLabel()) {
         errorEmptyLabel = true
         return
       }
-      emit('add-task', task)
+      context.emit('add-task', task)
       task.label = ''
-      errorEmptyLabel = false
     }
 
     return {

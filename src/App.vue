@@ -1,15 +1,18 @@
 <template>
-  <main-layout />
+  <MainLayout />
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue'
 import MainLayout from './views/MainLayout.vue'
 
-export default {
+const App = defineComponent({
+  name: 'App',
   components: {
     MainLayout
   }
-}
+})
+export default App
 </script>
 
 <style>

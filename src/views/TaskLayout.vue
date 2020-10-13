@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { Task } from '@/models'
-import { defineComponent, onMounted } from '@vue/composition-api'
+import { defineComponent, onMounted } from 'vue'
 import TaskForm from '../components/Tasks/TaskForm.vue'
 import TaskList from '../components/Tasks/TaskList.vue'
 import { taskService } from '../services'

@@ -1,13 +1,13 @@
 <template>
-  <task-layout />
+  <TaskLayout />
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 import TaskLayout from './TaskLayout.vue'
 
 const MainLayout = defineComponent({
-  name: 'TasksLayout',
+  name: 'MainLayout',
   components: {
     TaskLayout
   }
