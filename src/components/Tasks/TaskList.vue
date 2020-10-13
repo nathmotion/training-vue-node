@@ -15,14 +15,13 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-class-component'
+import { defineComponent } from '@vue/composition-api'
 
-export default class TaskList extends Vue {
-  name: string = 'TaskList'
+const TaskList = defineComponent({
+  name: 'TaskList'
+})
 
-  // eslint-disable-next-line no-undef
-  // @Prop() tasks?: Array
-}
+export default TaskList
 </script>
 
 <style scoped>

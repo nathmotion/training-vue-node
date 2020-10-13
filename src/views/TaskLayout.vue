@@ -7,23 +7,24 @@
 </template>
 
 <script lang="ts">
-import { onMounted } from '@vue/composition-api'
-import TaskList from './TaskList.vue'
-import TaskForm from './TaskForm.vue'
-import { taskService } from '../../services'
+import { Task } from '@/models'
+import { defineComponent, onMounted } from '@vue/composition-api'
+import TaskForm from '../components/Tasks/TaskForm.vue'
+import TaskList from '../components/Tasks/TaskList.vue'
+import { taskService } from '../services'
 
-export default {
+const MainLayout = defineComponent({
+  name: 'MainLayout',
   components: {
     TaskList,
     TaskForm
   },
   setup() {
-    let tasks = Array
-    const addTask = async (label: any) => {
-      const lastId = tasks.length > 0 ? tasks[tasks.length - 1].id : 0
-      const id = lastId + 1
+    let tasks: Task[] = []
+    const addTask = async (label: string) => {
+      const id: number = Math.floor(Math.random() * 100) + 1
       const newTask = {
-        ...label,
+        label,
         id
       }
       tasks = await taskService.add(newTask)
@@ -44,7 +45,9 @@ export default {
       deleteTask
     }
   }
-}
+})
+
+export default MainLayout
 </script>
 
 <style scoped>

@@ -1,7 +1,14 @@
+import { Task } from '@/models'
 import axios from 'axios'
 
+interface CtorOptions {
+  taskApiHost: string
+}
+
 export default class TaskService {
-  constructor({ taskApiHost }) {
+  private apiHost: string
+
+  constructor({ taskApiHost }: CtorOptions) {
     this.apiHost = taskApiHost
   }
 
@@ -16,12 +23,12 @@ export default class TaskService {
     return res.data
   }
 
-  async add(task) {
+  async add(task: Task) {
     const res = await this.api.post('/', task)
     return res.data
   }
 
-  async delete(id) {
+  async delete(id: number) {
     const res = await this.api.delete(`/${id}`)
     return res.data
   }

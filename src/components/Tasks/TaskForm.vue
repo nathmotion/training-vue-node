@@ -11,7 +11,9 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from '@vue/composition-api'
+
+const TaskForm = defineComponent({
   setup({ emit }) {
     let errorEmptyLabel = false
     const task = {
@@ -38,7 +40,9 @@ export default {
       handleSubmit
     }
   }
-}
+})
+
+export default TaskForm
 </script>
 
 <style scoped>
