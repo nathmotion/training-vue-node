@@ -8,10 +8,10 @@
 
 <script lang="ts">
 import { Task } from '@/models'
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import TaskForm from '../components/Tasks/TaskForm.vue'
 import TaskList from '../components/Tasks/TaskList.vue'
-import { taskService } from '../services'
+import taskService from '../services'
 
 const MainLayout = defineComponent({
   name: 'MainLayout',
@@ -20,23 +20,24 @@ const MainLayout = defineComponent({
     TaskForm
   },
   setup() {
-    let tasks: Task[] = []
+    const tasks = ref<Task[]>([])
+    const getTaskList = async () => {
+      tasks.value = await taskService.getAll()
+    }
+    onMounted(getTaskList)
+
     const addTask = async (label: string) => {
       const id: number = Math.floor(Math.random() * 100) + 1
       const newTask = {
         label,
         id
       }
-      tasks = await taskService.add(newTask)
+      tasks.value = await taskService.add(newTask)
     }
 
     const deleteTask = async (id: number) => {
-      tasks = await taskService.delete(id)
+      tasks.value = await taskService.delete(id)
     }
-    const getTaskList = async () => {
-      tasks = await taskService.getAll()
-    }
-    onMounted(getTaskList)
 
     return {
       tasks,
