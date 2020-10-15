@@ -12,13 +12,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { Task } from '@/models'
 
 const TaskForm = defineComponent({
   setup(props, context) {
     let errorEmptyLabel = false
-    const task = {
-      label: ''
-    }
+    const task: Task = { label: '' }
     const invalidLabel = (): boolean => {
       return task.label === ''
     }
