@@ -28,7 +28,6 @@ const MainLayout = defineComponent({
 
     const addTask = async (task: Task) => {
       const newTask: Task = { label: task.label }
-      console.info(task)
       tasks.value = await taskService.add(newTask)
     }
 
