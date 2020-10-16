@@ -27,8 +27,8 @@ const MainLayout = defineComponent({
     onMounted(getTaskList)
 
     const addTask = async (task: Task) => {
-      const id: number = Math.floor(Math.random() * 100) + 1
-      const newTask: Task = { id, label: task.label }
+      const newTask: Task = { label: task.label }
+      console.info(task)
       tasks.value = await taskService.add(newTask)
     }
 

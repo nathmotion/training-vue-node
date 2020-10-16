@@ -18,18 +18,18 @@ export default class TaskService {
     })
   }
 
-  async getAll() {
-    const res = await this.api.get('/')
+  async getAll(): Promise<Task[]> {
+    const res = await this.api.get<Task[]>('/')
     return res.data
   }
 
-  async add(task: Task) {
-    const res = await this.api.post('/', task)
+  async add(task: Task): Promise<Task[]> {
+    const res = await this.api.post<Task[]>('/', task)
     return res.data
   }
 
-  async delete(id: number) {
-    const res = await this.api.delete(`/${id}`)
+  async delete(id: number): Promise<Task[]> {
+    const res = await this.api.delete<Task[]>(`/${id}`)
     return res.data
   }
 }
