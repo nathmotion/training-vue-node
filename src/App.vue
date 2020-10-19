@@ -16,6 +16,14 @@ export default App
 </script>
 
 <style>
+:root {
+  --main-bg-color: #ffe4c4;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -7,11 +7,10 @@
 </template>
 
 <script lang="ts">
-import { Task } from '@/models'
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent } from 'vue'
+import taskFeature from '@/components/Tasks/task-feature'
 import TaskForm from '../components/Tasks/TaskForm.vue'
 import TaskList from '../components/Tasks/TaskList.vue'
-import taskService from '../services'
 
 const MainLayout = defineComponent({
   name: 'MainLayout',
@@ -20,20 +19,7 @@ const MainLayout = defineComponent({
     TaskForm
   },
   setup() {
-    const tasks = ref<Task[]>([])
-    const getTaskList = async () => {
-      tasks.value = await taskService.getAll()
-    }
-    onMounted(getTaskList)
-
-    const addTask = async (task: Task) => {
-      const newTask: Task = { label: task.label }
-      tasks.value = await taskService.add(newTask)
-    }
-
-    const deleteTask = async (id: number) => {
-      tasks.value = await taskService.delete(id)
-    }
+    const { tasks, getTaskList, addTask, deleteTask } = taskFeature()
 
     return {
       tasks,
@@ -48,10 +34,6 @@ export default MainLayout
 </script>
 
 <style scoped>
-:root {
-  --main-bg-color: #ffe4c4;
-}
-
 #app {
   font-family: 'Montserrat', 'Roboto', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -60,10 +42,6 @@ export default MainLayout
   margin-top: 4em;
   display: flex;
   flex-direction: column;
-}
-
-body {
-  background-color: var(--main-bg-color);
 }
 
 .content {

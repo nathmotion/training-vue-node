@@ -12,29 +12,30 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Task } from '@/models'
+import taskFeature from '@/components/Tasks/task-feature'
 
 const TaskForm = defineComponent({
+  props: {},
   setup(props, context) {
     let errorEmptyLabel = false
-    const task: Task = { label: '' }
-    const invalidLabel = (): boolean => {
-      return task.label === ''
-    }
+    const { task, invalidLabel, resetTask } = taskFeature()
 
     const handleSubmit = (): void => {
       if (invalidLabel()) {
         errorEmptyLabel = true
+        console.info(' invalid LABEL')
         return
       }
       context.emit('add-task', task)
-      task.label = ''
+      resetTask()
+      console.info(' task ', task)
     }
 
     return {
       errorEmptyLabel,
       task,
       invalidLabel,
+      resetTask,
       handleSubmit
     }
   }
