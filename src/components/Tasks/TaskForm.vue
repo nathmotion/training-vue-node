@@ -55,8 +55,8 @@ export default TaskForm
 .button-add {
   align-content: center;
   cursor: pointer;
-  margin-left: 0.4em;
-  font-size: 1.8em;
+  margin-left: var(--space-sm);
+  font-size: var(--font-size-lg);
 }
 
 .button-add:hover {
@@ -66,9 +66,8 @@ export default TaskForm
 .input {
   background-color: #bfbebb;
   border: none;
-  border-radius: 0.4em;
-  padding: 0.5em;
-  font-size: 0.85em;
+  border-radius: var(--border-radius-input);
+  padding: var(--space-sm);
 }
 
 .input:focus {

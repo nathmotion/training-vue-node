@@ -1,12 +1,14 @@
 <template>
-  <div class="task-list">
+  <div class="task-layout__task-list">
     <p v-if="tasks.length < 1" class="empty-list">No task found!</p>
     <ul v-else class="task">
-      <li v-for="task in tasks" :key="task.id" class="task-item">
-        <div class="task-part-left">
-          <label>{{ task.label }}</label>
+      <li v-for="task in tasks" :key="task.id">
+        <div class="task-layout__task-item">
+          <div class="task-part-left">
+            <label>{{ task.label }}</label>
+          </div>
+          <i class="material-icons button-delete" @click="$emit('delete-task', task.id)">delete</i>
         </div>
-        <i class="material-icons button-delete" @click="$emit('delete-task', task.id)">delete</i>
       </li>
     </ul>
   </div>
@@ -26,25 +28,27 @@ export default TaskList
 </script>
 
 <style scoped>
-.task li {
+.task-layout__task-list {
+  width: 50%;
+  margin: auto;
+}
+.task-layout__task-item {
+  margin: 0.5rem;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
-  border: 0.125em solid #bfbebb;
-  border-radius: 0.4em;
-  color: #bfbebb;
-  font-size: 0.85em;
-  justify-content: space-between;
-  margin-top: 0.5em;
-  padding: 0.1em 0.5em 0.1em 0.5em;
-  width: 200%;
+  background-color: #bfbebb;
+  color: var(--font-color-secondary);
 }
-
+.task-part-left {
+  flex: 1 1 0;
+}
 .empty-list {
   margin-top: 3em;
 }
 
 .button-delete {
-  color: #bfbebb;
+  color: var(--font-color-secondary);
   font-size: 1.3em;
   margin-bottom: 0.1em;
   margin-top: 0.1em;
