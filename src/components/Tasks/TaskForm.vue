@@ -1,34 +1,31 @@
 <template>
-  <div id="task-form">
-    <form @submit.prevent="handleSubmit">
-      <div class="form-input-button">
-        <input class="input-task" type="text" v-model="task.label" placeholder="New task" />
-        <span class="material-icons button-add" @click="handleSubmit">post_addgi</span>
-      </div>
-      <p v-if="errorEmptyLabel" class="error-message">❗ Veuillez renseigner tous les champs ❗</p>
+  <div class="task-from">
+    <form class="form" @submit.prevent="handleSubmit">
+      <input class="input" type="text" v-model="task.label" placeholder="New task" />
+      <span class="material-icons button-add" @click="handleSubmit">post_addgi</span>
     </form>
+    <p v-if="errorEmptyLabel" class="error-message">Please enter a valid label.</p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import taskFeature from '@/components/Tasks/task-feature'
 
 const TaskForm = defineComponent({
   props: {},
   setup(props, context) {
-    let errorEmptyLabel = false
     const { task, invalidLabel, resetTask } = taskFeature()
+    const errorEmptyLabel = ref(false)
 
     const handleSubmit = (): void => {
       if (invalidLabel()) {
-        errorEmptyLabel = true
-        console.info(' invalid LABEL')
+        errorEmptyLabel.value = true
         return
       }
       context.emit('add-task', task)
       resetTask()
-      console.info(' task ', task)
+      errorEmptyLabel.value = false
     }
 
     return {
@@ -45,45 +42,42 @@ export default TaskForm
 </script>
 
 <style scoped>
-:root {
-  --error-color-message: #d33c40;
+#task-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  align-items: center;
 }
 
 .button-add {
   align-content: center;
   cursor: pointer;
-  margin-left: 10px;
-  font-size: 30px;
+  margin-left: 0.4em;
+  font-size: 1.8em;
 }
 
-.input-task {
-  display: block;
-  margin: 0;
-  padding: 0.8em 1.6em;
-  color: inherit;
+.button-add:hover {
+  color: black;
+}
+
+.input {
+  background-color: #bfbebb;
   border: none;
   border-radius: 0.4em;
+  padding: 0.6em;
+  max-width: 55%;
 }
 
-.input-task:focus {
+.input:focus {
   outline: none;
 }
 
-.form-input-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .error-message {
-  color: var(--error-color-message);
-  font-size: 70%;
-}
-
-#task-form {
-  width: 50%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 0.4em;
+  color: red;
+  font-size: 75%;
 }
 </style>

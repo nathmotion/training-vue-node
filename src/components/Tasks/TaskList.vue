@@ -1,7 +1,7 @@
 <template>
   <div id="task-list">
-    <p v-if="tasks.length < 1" class="empty-table task-item">No task found!</p>
-    <ul v-else class="list-task">
+    <p v-if="tasks.length < 1" class="empty-list">No task found!</p>
+    <ul v-else class="task">
       <li v-for="task in tasks" :key="task.id" class="task-item">
         <div class="task-part-left">
           <label>{{ task.label }}</label>
@@ -28,55 +28,32 @@ export default TaskList
 </script>
 
 <style scoped>
-#task-list {
-  width: 33%;
+.task li {
+  display: flex;
+  align-items: center;
+  border: 0.125em solid #bfbebb;
+  border-radius: 0.4em;
+  color: #bfbebb;
+  font-size: 0.9em;
+  justify-content: space-between;
+  margin-top: 0.5em;
+  padding: 0.1em 0.5em 0.1em 0.5em;
 }
 
-.list-task {
-  width: 100%;
-  margin-top: 21px;
-}
-
-.empty-table {
+.empty-list {
   padding: 25px;
-  margin-top: 21px;
+  margin-top: 25px;
 }
 
 .button-delete {
-  color: #ff2929;
+  color: #bfbebb;
+  font-size: 1.4em;
+  margin-top: 1px;
+  transition: 0.4s linear;
+}
+
+.button-delete:hover {
+  color: red;
   cursor: pointer;
-  margin-top: 2px;
-  border-radius: 4px;
-}
-
-ul.list-task {
-  list-style-type: none;
-  padding: 0;
-}
-
-li.task-item {
-  padding: 10px 20px 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.task-part-left {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  text-align: left;
-}
-
-.task-part-left label {
-  cursor: pointer;
-  margin-left: 8px;
-}
-
-.task-item {
-  background-color: #ffffff;
-  border-radius: 10px;
 }
 </style>

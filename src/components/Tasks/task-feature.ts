@@ -1,13 +1,27 @@
 import { Task } from '@/models'
 import taskService from '@/services'
-import { onMounted, ref } from 'vue'
+import { onMounted, Ref, ref, reactive } from 'vue'
 
-const taskFeature = () => {
+interface TaskFeature {
+  task: Task
+  tasks: Ref<Task[]>
+  getTaskList: () => void
+  addTask: (task: Task) => void
+  deleteTask: (id: number) => void
+  resetTask: () => void
+  invalidLabel: () => boolean
+}
+
+const taskFeature = (): TaskFeature => {
+  const task = reactive({ label: '' })
   const tasks = ref<Task[]>([])
-  const task: Task = { label: '' }
 
-  const invalidLabel = (): boolean => {
+  const invalidLabel = () => {
     return task.label === ''
+  }
+
+  const resetTask = () => {
+    task.label = ''
   }
 
   const getTaskList = async () => {
@@ -21,18 +35,15 @@ const taskFeature = () => {
     tasks.value = await taskService.delete(id)
   }
 
-  const resetTask = () => {
-    task.label = ''
-  }
   onMounted(getTaskList)
 
   return {
     task,
     tasks,
     invalidLabel,
-    deleteTask,
-    addTask,
     getTaskList,
+    addTask,
+    deleteTask,
     resetTask
   }
 }

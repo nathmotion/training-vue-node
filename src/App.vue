@@ -16,20 +16,14 @@ export default App
 </script>
 
 <style>
-:root {
-  --main-bg-color: #ffe4c4;
-}
-
 body {
-  background-color: var(--main-bg-color);
+  background-color: #2f302a;
 }
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 6em;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <h1>ToDo List</h1>
+    <h1>Welcome to the Supa Dupa Task Listano sponsa no tekio de okari shimasu!</h1>
     <task-form @add-task="addTask" />
     <task-list :tasks="tasks" @delete-task="deleteTask" />
   </div>
@@ -35,19 +35,20 @@ export default MainLayout
 
 <style scoped>
 #app {
-  font-family: 'Montserrat', 'Roboto', 'Arial', sans-serif;
+  font-family: 'Open Sans', 'Montserrat', 'Roboto', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin-top: 4em;
-  display: flex;
-  flex-direction: column;
 }
 
 .content {
-  width: 100%;
+  color: #bfbebb;
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
   align-items: center;
+}
+
+h1 {
+  font-size: 1.4em;
+  margin-bottom: 4em;
 }
 </style>
