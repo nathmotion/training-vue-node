@@ -16,7 +16,7 @@ const taskFeature = (): TaskFeature => {
   const task = reactive({ label: '' })
   const tasks = ref<Task[]>([])
 
-  const invalidLabel = () => {
+  const invalidLabel = (): boolean => {
     return task.label === ''
   }
 

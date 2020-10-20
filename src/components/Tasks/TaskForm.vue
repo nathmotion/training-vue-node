@@ -1,5 +1,5 @@
 <template>
-  <div class="task-from">
+  <div class="task-form">
     <form class="form" @submit.prevent="handleSubmit">
       <input class="input" type="text" v-model="task.label" placeholder="New task" />
       <span class="material-icons button-add" @click="handleSubmit">post_addgi</span>
@@ -42,15 +42,14 @@ export default TaskForm
 </script>
 
 <style scoped>
-#task-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.task-form {
+  margin-bottom: 3em;
 }
 
 .form {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .button-add {
@@ -68,8 +67,8 @@ export default TaskForm
   background-color: #bfbebb;
   border: none;
   border-radius: 0.4em;
-  padding: 0.6em;
-  max-width: 55%;
+  padding: 0.5em;
+  font-size: 0.85em;
 }
 
 .input:focus {
@@ -79,5 +78,6 @@ export default TaskForm
 .error-message {
   color: red;
   font-size: 75%;
+  position: absolute;
 }
 </style>

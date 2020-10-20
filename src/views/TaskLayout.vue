@@ -43,12 +43,13 @@ export default MainLayout
 .content {
   color: #bfbebb;
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 h1 {
   font-size: 1.4em;
-  margin-bottom: 4em;
+  margin-bottom: 5em;
 }
 </style>
