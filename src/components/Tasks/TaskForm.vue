@@ -2,7 +2,7 @@
   <div class="task-form">
     <form class="form" @submit.prevent="handleSubmit">
       <input class="input" type="text" v-model="task.label" placeholder="New task" />
-      <span class="material-icons button-add" @click="handleSubmit">post_addgi</span>
+      <i class="material-icons button-add" @click="handleSubmit">post_addgi</i>
     </form>
     <p v-if="errorEmptyLabel" class="error-message">Please enter a valid label.</p>
   </div>

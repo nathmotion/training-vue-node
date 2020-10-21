@@ -17,16 +17,14 @@ export default App
 
 <style>
 :root {
-  --background-color: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%),
-    linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
-    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  --background-color: linear-gradient(45deg, rgba(36, 59, 90, 0.5), rgba(36, 59, 90, 0.9) 33.33%);
   --space-sm: 0.5rem;
   --border-radius-input: 6px;
   --font-size-md: 1rem;
   --font-size-lg: 1.5rem;
   --font-color: #bfbebb;
-  --font-color-secondary: midnightblue;
-  --font-family: Avenir, Helvetica, Arial, sans-serif;
+  --font-color-secondary: blanchedalmond;
+  --font-family: 'Open Sans', Avenir, Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -36,7 +34,7 @@ body {
 }
 
 #app {
-  font-family: var(--font-color);
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-top: 6em;
@@ -45,6 +43,6 @@ body {
 }
 
 h1 {
-  color: midnightblue;
+  color: blanchedalmond;
 }
 </style>

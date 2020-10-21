@@ -32,17 +32,21 @@ export default TaskList
   width: 50%;
   margin: auto;
 }
+
 .task-layout__task-item {
   margin: 0.5rem;
   padding: 0.5rem;
   display: flex;
   align-items: center;
-  background-color: #bfbebb;
   color: var(--font-color-secondary);
+  border-radius: 0.4em;
+  border: var(--font-color-secondary) solid 1px;
 }
+
 .task-part-left {
   flex: 1 1 0;
 }
+
 .empty-list {
   margin-top: 3em;
 }
