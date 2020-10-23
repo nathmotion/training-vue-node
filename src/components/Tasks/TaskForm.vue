@@ -1,85 +1,82 @@
 <template>
-  <div id="task-form">
-    <form @submit.prevent="handleSubmit">
-      <div class="form-input-button">
-        <input class="input-task" type="text" v-model="task.label" placeholder="New task" />
-        <span class="material-icons button-add" @click="handleSubmit">post_addgi</span>
-      </div>
-      <p v-if="error" class="error-message">❗ Veuillez renseigner tous les champs ❗</p>
+  <div class="task-form">
+    <form class="form" @submit.prevent="handleSubmit">
+      <input class="input" type="text" v-model="task.label" placeholder="New task" />
+      <i class="material-icons button-add" @click="handleSubmit">post_addgi</i>
     </form>
+    <p v-if="errorEmptyLabel" class="error-message">Please enter a valid label.</p>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'TaskForm',
-  data() {
-    return {
-      error: false,
-      task: {
-        label: ''
-      }
-    }
-  },
-  computed: {
-    invalidLabel() {
-      return this.task.label === ''
-    }
-  },
-  methods: {
-    handleSubmit() {
-      if (this.invalidLabel) {
-        this.error = true
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+import taskFeature from '@/components/Tasks/task-feature'
+
+const TaskForm = defineComponent({
+  props: {},
+  setup(props, context) {
+    const { task, invalidLabel, resetTask } = taskFeature()
+    const errorEmptyLabel = ref(false)
+
+    const handleSubmit = (): void => {
+      if (invalidLabel()) {
+        errorEmptyLabel.value = true
         return
       }
-      this.$emit('add-task', this.task)
-      this.task.label = ''
-      this.error = false
+      context.emit('add-task', task)
+      resetTask()
+      errorEmptyLabel.value = false
+    }
+
+    return {
+      errorEmptyLabel,
+      task,
+      invalidLabel,
+      resetTask,
+      handleSubmit
     }
   }
-}
+})
+
+export default TaskForm
 </script>
 
 <style scoped>
-:root {
-  --error-color-message: #d33c40;
+.task-form {
+  margin-bottom: 3em;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-add {
   align-content: center;
   cursor: pointer;
-  margin-left: 10px;
-  font-size: 30px;
+  margin-left: var(--space-sm);
+  font-size: var(--font-size-lg);
 }
 
-.input-task {
-  display: block;
-  margin: 0;
-  padding: 0.8em 1.6em;
-  color: inherit;
+.button-add:hover {
+  color: black;
+}
+
+.input {
+  background-color: #bfbebb;
   border: none;
-  border-radius: 0.4em;
+  border-radius: var(--border-radius-input);
+  padding: var(--space-sm);
 }
 
-.input-task:focus {
+.input:focus {
   outline: none;
 }
 
-.form-input-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .error-message {
-  color: var(--error-color-message);
-  font-size: 70%;
-}
-
-#task-form {
-  width: 50%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 0.4em;
+  color: red;
+  font-size: 75%;
+  position: absolute;
 }
 </style>

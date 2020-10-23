@@ -1,12 +1,12 @@
 <template>
-  <div id="task-list">
-    <p v-if="tasks.length < 1" class="empty-table task-item">No task found!</p>
-    <ul v-else class="list-task">
-      <li v-for="task in tasks" :key="task.id" class="task-item">
-        <div class="task-part-left">
-          <label>{{ task.label }}</label>
-        </div>
-        <div class="task-part-right">
+  <div class="task-layout__task-list">
+    <p v-if="tasks.length < 1" class="empty-list">No task found!</p>
+    <ul v-else class="task">
+      <li v-for="task in tasks" :key="task.id">
+        <div class="task-layout__task-item">
+          <div class="task-part-left">
+            <label>{{ task.label }}</label>
+          </div>
           <i class="material-icons button-delete" @click="$emit('delete-task', task.id)">delete</i>
         </div>
       </li>
@@ -14,65 +14,53 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+const TaskList = defineComponent({
   name: 'TaskList',
   props: {
     tasks: Array
   }
-}
+})
+
+export default TaskList
 </script>
 
 <style scoped>
-#task-list {
-  width: 33%;
+.task-layout__task-list {
+  width: 50%;
+  margin: auto;
 }
 
-.list-task {
-  width: 100%;
-  margin-top: 21px;
-}
-
-.empty-table {
-  padding: 25px;
-  margin-top: 21px;
-}
-
-.button-delete {
-  color: #ff2929;
-  cursor: pointer;
-  margin-top: 2px;
-  border-radius: 4px;
-}
-
-ul.list-task {
-  list-style-type: none;
-  padding: 0;
-}
-
-li.task-item {
-  padding: 10px 20px 10px 15px;
+.task-layout__task-item {
+  margin: 0.5rem;
+  padding: 0.5rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  color: var(--font-color-secondary);
+  border-radius: 0.4em;
+  border: var(--font-color-secondary) solid 1px;
 }
 
 .task-part-left {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  text-align: left;
+  flex: 1 1 0;
 }
 
-.task-part-left label {
+.empty-list {
+  margin-top: 3em;
+}
+
+.button-delete {
+  color: var(--font-color-secondary);
+  font-size: 1.3em;
+  margin-bottom: 0.1em;
+  margin-top: 0.1em;
+  transition: 0.4s linear;
+}
+
+.button-delete:hover {
+  color: red;
   cursor: pointer;
-  margin-left: 8px;
-}
-
-.task-item {
-  background-color: #ffffff;
-  border-radius: 10px;
 }
 </style>
