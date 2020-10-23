@@ -17,7 +17,8 @@ export default App
 
 <style>
 :root {
-  --background-color: linear-gradient(45deg, rgba(36, 59, 90, 0.5), rgba(36, 59, 90, 0.9) 33.33%);
+  --background-image: linear-gradient(45deg, rgba(36, 59, 90, 0), rgba(36, 59, 90, 0.9) 80.33%),
+    url('./assets/main_cover.jpg');
   --space-sm: 0.5rem;
   --border-radius-input: 6px;
   --font-size-md: 1rem;
@@ -28,7 +29,8 @@ export default App
 }
 
 body {
-  background: var(--background-color);
+  background: var(--background-image);
+  background-size: cover;
   color: var(--font-color);
   min-height: 100vh;
 }
