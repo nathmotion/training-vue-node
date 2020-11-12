@@ -4,7 +4,7 @@
     <ul v-else class="task-list__task-items">
       <li v-for="task in tasks" :key="task.id">
         <div class="task-items__task-item">
-          <div class="task-item__task-part-left">
+          <div class="task-item__label-part">
             <label>{{ task.label }}</label>
           </div>
           <i class="material-icons task-item__button-delete" @click="$emit('delete-task', task.id)">delete</i>
@@ -43,7 +43,7 @@ export default TaskList
   border: var(--font-color-secondary) solid 1px;
 }
 
-.task-item__task-part-left {
+.task-item__label-part {
   flex: 1 1 0;
 }
 
