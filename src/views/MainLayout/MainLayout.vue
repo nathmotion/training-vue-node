@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import TaskLayout from './TaskLayout.vue'
+import TaskLayout from '../Tasks/TaskLayout.vue'
 
 const MainLayout = defineComponent({
   name: 'MainLayout',

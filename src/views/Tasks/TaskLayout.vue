@@ -11,8 +11,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import taskFeature from '@/components/Tasks/task-feature'
-import TaskForm from '../components/Tasks/TaskForm.vue'
-import TaskList from '../components/Tasks/TaskList.vue'
+import TaskForm from '../../components/Tasks/TaskForm.vue'
+import TaskList from '../../components/Tasks/TaskList.vue'
 
 const MainLayout = defineComponent({
   name: 'MainLayout',

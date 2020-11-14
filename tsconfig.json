@@ -13,7 +13,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "noImplicitAny": true,
-    "types": ["webpack-env"],
+    "types": ["jest", "webpack-env"],
     "paths": {
       "@/*": ["src/*"]
     },
