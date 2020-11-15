@@ -4,6 +4,6 @@ import MainLayout from '../MainLayout.vue'
 describe('MainLayout', () => {
   it('renders a div', () => {
     const wrapper = shallowMount(MainLayout)
-    expect(wrapper.contains('div')).toBe(true)
+    expect(wrapper.text()).toContain('div')
   })
 })
