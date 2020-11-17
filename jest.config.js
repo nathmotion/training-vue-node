@@ -3,5 +3,7 @@ module.exports = {
   transform: {
     '^.+\\.vue$': 'vue-jest'
   },
-  testMatch: ['<rootDir>/src/**/*.spec.ts']
+  testMatch: ['<rootDir>/src/**/*.spec.ts'],
+  collectCoverage: true,
+  collectCoverageFrom: ['**/*.{ts,vue}', '!**/node_modules/**']
 }

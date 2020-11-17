@@ -5208,7 +5208,7 @@ fs-extra@^7.0.1:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
-fs-extra@^9.0.0:
+fs-extra@^9.0.0, fs-extra@^9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.0.1.tgz#910da0062437ba4c39fedd863f1675ccfefcb9fc"
   integrity sha512-h2iAoN838FqAFJY2/qVpzFXy+EBxfVE220PalAqQLDVsFOHLJrZvut5puAbCdNv6WJk+B8ihI+k0c7JK5erwqQ==
@@ -6485,6 +6485,13 @@ jest-haste-map@^24.9.0:
     walker "^1.0.7"
   optionalDependencies:
     fsevents "^1.2.7"
+
+jest-html-reporters@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/jest-html-reporters/-/jest-html-reporters-2.1.0.tgz#bec55cdb6e1ddf3379f82fa9b5c0c862efda6439"
+  integrity sha512-1RAyEtvfpHHv4pbrl4Y7Vm777ucHkTH2G0Rvpo9M9/ew2TwPqhvEi37IoTLf+gdelDxaS0QqyH89+9lO6omAcA==
+  dependencies:
+    fs-extra "^9.0.1"
 
 jest-jasmine2@^24.9.0:
   version "24.9.0"

@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils'
 import MainLayout from '../MainLayout.vue'
 import TaskLayout from '../../Tasks/TaskLayout.vue'
 
-describe('MainLayout', () => {
+describe('#MainLayout', () => {
   it('renders child component TaskLayout', () => {
     // Given
     const wrapper = shallowMount(MainLayout)

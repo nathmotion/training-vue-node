@@ -14,8 +14,8 @@ import taskFeature from '@/components/Tasks/task-feature'
 import TaskForm from '../../components/Tasks/TaskForm.vue'
 import TaskList from '../../components/Tasks/TaskList.vue'
 
-const MainLayout = defineComponent({
-  name: 'MainLayout',
+const TaskLayout = defineComponent({
+  name: 'TaskLayout',
   components: {
     TaskList,
     TaskForm
@@ -32,7 +32,7 @@ const MainLayout = defineComponent({
   }
 })
 
-export default MainLayout
+export default TaskLayout
 </script>
 
 <style scoped>
