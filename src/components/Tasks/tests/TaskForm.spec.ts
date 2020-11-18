@@ -6,8 +6,8 @@ describe('#TaskForm', () => {
     // Given
     const wrapper = shallowMount(TaskForm)
     // When
-    const childComponentsList = wrapper.findAll('form')
+    const childComponentsForm = wrapper.findAll('form')
     // Then
-    expect(childComponentsList).toHaveLength(1)
+    expect(childComponentsForm).toHaveLength(1)
   })
 })
