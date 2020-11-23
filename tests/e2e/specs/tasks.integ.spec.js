@@ -7,16 +7,10 @@ describe('#App', () => {
   })
   it('Delete a task when you click on icon, remove to this tasks ', () => {
     cy.visit('http://localhost:8080/')
-    const tasksListLength = cy.get('.task-items__task-item').length
-    cy.get('.task-items__task-item')
-      .eq(0)
-      .get('.task-item__button-delete')
-      .eq(0)
-      .click()
-      .then(() => {
-        console.info(cy.get('.task-items__task-item'))
-        console.info(tasksListLength)
-        expect(cy.get('.task-items__task-item').length).to.eq(tasksListLength - 1)
-      })
+    const tasksList = cy.get('.task-items__task-item')
+    const firstElem = cy.get('.task-items__task-item').first().get('.task-item__button-delete').first()
+    firstElem.click()
+    console.info(' test :', tasksList)
+    cy.get('.task-items__task-item').should('have.length', tasksList.length - 1)
   })
 })
