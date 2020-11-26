@@ -6,40 +6,24 @@
     "es6": true,
     "node": true
   },
-  "extends": [
-    "plugin:vue/essential",
-    "@vue/airbnb",
-    "@vue/typescript",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["plugin:vue/essential", "@vue/airbnb", "@vue/typescript", "plugin:prettier/recommended"],
   "parserOptions": {
     "ecmaVersion": 2020,
     "parser": "@typescript-eslint/parser"
   },
-  "plugins": [
-    "import",
-    "prettier",
-    "vue"
-  ],
+  "plugins": ["import", "prettier", "vue"],
   "rules": {
     "no-console": [
       "error",
       {
-        "allow": [
-          "error",
-          "warn",
-          "info"
-        ]
+        "allow": ["error", "warn", "info"]
       }
     ],
     "prettier/prettier": "error",
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          "**/*.test.ts",
-          "**/*.spec.ts"
-        ]
+        "devDependencies": ["**/*.test.ts", "**/*.spec.ts"]
       }
     ]
   }
