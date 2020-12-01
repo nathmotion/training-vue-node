@@ -1,8 +1,9 @@
+import { onMounted, reactive, ref, Ref } from 'vue'
+
 import { Task } from '@/models'
 import taskService from '@/services'
-import { onMounted, Ref, ref, reactive } from 'vue'
 
-interface TaskFeature {
+export interface TaskFeature {
   task: Task
   tasks: Ref<Task[]>
   getTaskList: () => void
@@ -12,7 +13,7 @@ interface TaskFeature {
   invalidLabel: () => boolean
 }
 
-const taskFeature = (): TaskFeature => {
+const taskFeatureFn = (): TaskFeature => {
   const task = reactive({ label: '' })
   const tasks = ref<Task[]>([])
 
@@ -47,4 +48,4 @@ const taskFeature = (): TaskFeature => {
     resetTask
   }
 }
-export default taskFeature
+export default taskFeatureFn

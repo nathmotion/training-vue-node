@@ -58,10 +58,12 @@ describe('# Task Service', () => {
       // Given
       const idToDelete = 3
       taskMock = taskMock.filter(({ id }) => id !== idToDelete)
-      const deleteMock = nock(taskApiHost).delete('/', { params: { idToDelete } }).reply(200, taskMock)
+      const deleteMock = nock(taskApiHost).delete(`/${idToDelete}?id=${idToDelete}`).reply(200, taskMock)
       // Then
+      const tasks = await taskService.delete(idToDelete)
       // Then
       expect(taskService).toBeInstanceOf(TaskService)
+      expect(tasks).toStrictEqual(taskMock)
     })
   })
 })
