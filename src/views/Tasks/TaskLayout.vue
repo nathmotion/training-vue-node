@@ -10,7 +10,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+
 import taskFeature from '@/components/Tasks/task-feature'
+import taskService from '@/services'
 import TaskForm from '../../components/Tasks/TaskForm.vue'
 import TaskList from '../../components/Tasks/TaskList.vue'
 
@@ -21,7 +23,7 @@ const TaskLayout = defineComponent({
     TaskForm
   },
   setup() {
-    const { tasks, getTaskList, addTask, deleteTask } = taskFeature()
+    const { tasks, getTaskList, addTask, deleteTask } = taskFeature(taskService)
 
     return {
       tasks,

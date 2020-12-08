@@ -1,4 +1,4 @@
-import { stubInterface } from 'ts-sinon'
+import { StubbedInstance, stubInterface } from 'ts-sinon'
 
 import { Task } from '@/models'
 import TaskService from '@/services/task.service'
@@ -12,10 +12,10 @@ const taskMock: Task[] = [
 
 describe(' #TaskFeature', () => {
   let taskFeature: TaskFeature
-  let taskService: TaskService
+  let mockTaskService: StubbedInstance<TaskService>
   beforeEach(() => {
-    taskService = stubInterface<TaskService>()
-    taskFeature = createTaskFeature(taskService)
+    mockTaskService = stubInterface<TaskService>()
+    taskFeature = createTaskFeature(mockTaskService)
   })
   describe('#reset Task', () => {
     describe('When  there is task', () => {
@@ -33,11 +33,29 @@ describe(' #TaskFeature', () => {
   describe('# Get  All Tasks ', () => {
     it('should call taskService', () => {
       // Given
-      taskFeature.tasks.value = []
       // When
       taskFeature.getTaskList()
       // Then
-      expect(taskService.getAll()).toBeCalled()
+      expect(mockTaskService.getAll.callCount).toEqual(1)
+    })
+  })
+  describe('# Add  a Task ', () => {
+    it('should call taskService', () => {
+      // Given
+      const newTask: Task = { label: 'new Task' }
+      // When
+      taskFeature.addTask(newTask)
+      // Then
+      expect(mockTaskService.add.callCount).toEqual(1)
+    })
+  })
+  describe('# Delete  a Task ', () => {
+    it('should call taskService', () => {
+      // Given
+      // When
+      taskFeature.deleteTask(1)
+      // Then
+      expect(mockTaskService.delete.callCount).toEqual(1)
     })
   })
 })

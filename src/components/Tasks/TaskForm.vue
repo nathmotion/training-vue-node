@@ -10,12 +10,14 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+
 import taskFeature from '@/components/Tasks/task-feature'
+import taskService from '@/services'
 
 const TaskForm = defineComponent({
   props: {},
   setup(props, context) {
-    const { task, invalidLabel, resetTask } = taskFeature()
+    const { task, invalidLabel, resetTask } = taskFeature(taskService)
     const errorEmptyLabel = ref(false)
 
     const handleSubmit = (): void => {
