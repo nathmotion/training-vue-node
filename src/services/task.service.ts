@@ -29,7 +29,7 @@ export default class TaskService {
   }
 
   async delete(id: number): Promise<Task[]> {
-    const res = await this.api.delete<Task[]>(`/${id}`)
+    const res = await this.api.delete<Task[]>(`/${id}`, { params: { id } })
     return res.data
   }
 }

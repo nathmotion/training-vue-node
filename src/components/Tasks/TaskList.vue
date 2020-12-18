@@ -1,13 +1,13 @@
 <template>
   <div class="task-layout__task-list">
-    <p v-if="tasks.length < 1" class="empty-list">No task found!</p>
-    <ul v-else class="task">
+    <p v-if="tasks.length < 1" class="task-list__empty-list">No task found!</p>
+    <ul v-else class="task-list__task-items">
       <li v-for="task in tasks" :key="task.id">
-        <div class="task-layout__task-item">
-          <div class="task-part-left">
+        <div class="task-items__task-item">
+          <div class="task-item__label-part">
             <label>{{ task.label }}</label>
           </div>
-          <i class="material-icons button-delete" @click="$emit('delete-task', task.id)">delete</i>
+          <i class="material-icons task-item__button-delete" @click="$emit('delete-task', task.id)">delete</i>
         </div>
       </li>
     </ul>
@@ -33,7 +33,7 @@ export default TaskList
   margin: auto;
 }
 
-.task-layout__task-item {
+.task-items__task-item {
   margin: 0.5rem;
   padding: 0.5rem;
   display: flex;
@@ -43,15 +43,15 @@ export default TaskList
   border: var(--font-color-secondary) solid 1px;
 }
 
-.task-part-left {
+.task-item__label-part {
   flex: 1 1 0;
 }
 
-.empty-list {
+.task-list__empty-list {
   margin-top: 3em;
 }
 
-.button-delete {
+.task-item__button-delete {
   color: var(--font-color-secondary);
   font-size: 1.3em;
   margin-bottom: 0.1em;
@@ -59,7 +59,7 @@ export default TaskList
   transition: 0.4s linear;
 }
 
-.button-delete:hover {
+.task-item__button-delete:hover {
   color: red;
   cursor: pointer;
 }

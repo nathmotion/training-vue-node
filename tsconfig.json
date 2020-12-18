@@ -13,12 +13,12 @@
     "sourceMap": true,
     "baseUrl": ".",
     "noImplicitAny": true,
-    "types": ["webpack-env"],
+    "types": ["jest", "webpack-env", "nock"],
     "paths": {
       "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["src/**/*.ts", "src/**/*.vue", "tests/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.vue"],
   "exclude": ["node_modules"]
 }

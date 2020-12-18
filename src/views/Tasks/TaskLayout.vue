@@ -10,18 +10,20 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import taskFeature from '@/components/Tasks/task-feature'
-import TaskForm from '../components/Tasks/TaskForm.vue'
-import TaskList from '../components/Tasks/TaskList.vue'
 
-const MainLayout = defineComponent({
-  name: 'MainLayout',
+import taskFeature from '@/components/Tasks/task-feature'
+import taskService from '@/services'
+import TaskForm from '../../components/Tasks/TaskForm.vue'
+import TaskList from '../../components/Tasks/TaskList.vue'
+
+const TaskLayout = defineComponent({
+  name: 'TaskLayout',
   components: {
     TaskList,
     TaskForm
   },
   setup() {
-    const { tasks, getTaskList, addTask, deleteTask } = taskFeature()
+    const { tasks, getTaskList, addTask, deleteTask } = taskFeature(taskService)
 
     return {
       tasks,
@@ -32,7 +34,7 @@ const MainLayout = defineComponent({
   }
 })
 
-export default MainLayout
+export default TaskLayout
 </script>
 
 <style scoped>

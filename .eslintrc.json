@@ -19,6 +19,12 @@
         "allow": ["error", "warn", "info"]
       }
     ],
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/*.test.ts", "**/*.spec.ts"]
+      }
+    ]
   }
 }
